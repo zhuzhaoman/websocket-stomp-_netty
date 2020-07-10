@@ -9,7 +9,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 /**
  * @author zhuzhaoman
  * @date 2020/6/14 0014 21:47
- * @description WebSocket
+ * @description WebSocket配置
  */
 @Configuration
 @EnableWebSocketMessageBroker
@@ -39,7 +39,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         /**
          * 订阅Broker名称
          * /topic代表发布方波，即群发
-         * /queue代表点对点，即发送给指定用户
+         * /user代表点对点，即发送给指定用户
          *
          * 表示设置消息代理的前缀，即如果消息的前缀是"/topic"，就会将消息转发给消息代理
          * 再由消息代理将消息广播给当前连接的客户端
@@ -49,7 +49,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         /**
          * 全局使用的消息前缀
          * 客户端发送消息的目的地为/app/sendTest，即对应的控制层@MessageMapping("/sendTest")
-         * 李护短订阅住的地目的地为/app/subscribeTest，即对应的控制层@SubscribeMapping("/subscribeTest")
+         * 客户端订阅住的地目的地为/app/subscribeTest，即对应的控制层@SubscribeMapping("/subscribeTest")
          */
         registry.setApplicationDestinationPrefixes("/app");
     }
